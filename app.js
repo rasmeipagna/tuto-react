@@ -10,11 +10,13 @@ function render() {
         'Tache 2',
         'Tache 3'
     ]
+    //créer un tableau pour parcourir chaque élément
+    const list = items.map(item => <li>{item}</li>)
     const title = <React.Fragment><h1 className="title" id="title">
         Bonjour les gens <span>{n}</span>
         </h1>
         <ul>
-            <li>Premier li</li>
+            {list}
         </ul>
         </React.Fragment>
 
