@@ -80,6 +80,7 @@ function Home () {
         <Welcome name="Pagna" />
         <Welcome name="Jean" />
         <Clock/>
+        {/* ici on incremente chaque seconde à partir de 10 */}
         <Incrementer start={10} />
         {/* ici on incremente de 10 par 10 */}
         <Incrementer start={100} step={10} />
