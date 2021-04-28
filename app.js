@@ -1,11 +1,12 @@
-function WelcomeFunc ({name, children}){
-    return <div>
-    <h1>Bonjour {name} avec un function</h1>
-    <p>
-        {children}
-    </p>
-    </div>
-}
+//Possibilité d'utiliser function()
+// function WelcomeFunc ({name, children}){
+//     return <div>
+//     <h1>Bonjour {name} avec un function</h1>
+//     <p>
+//         {children}
+//     </p>
+//     </div>
+// }
 
 class Welcome extends React.Component {
 
