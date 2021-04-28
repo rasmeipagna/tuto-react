@@ -69,20 +69,21 @@ class Incrementer extends React.Component{
     increment () {
         this.setState((state, props) => ({n: state.n + props.step}))
     }
-
+// utilisation de bouton pause 
     pause () {
         window.clearInterval(this.state.timer)
         this.setState({
             timer: null
         })
     }
-
+// utilisation bouton play pour relancer le timer
     play () {
         window.clearInterval(this.state.timer)
         this.setState({
             timer: window.setInterval(this.increment.bind(this), 1000)
         })
     }
+    // méthode plus simple
     // au click permet de switch entre play/pause
     toggle () {
         return this.state.timer ? this.pause() : this.play()
