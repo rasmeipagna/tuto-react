@@ -148,6 +148,26 @@
 //     </div>
 // }
 
-
+class Home extends React.Component {
+    constructor (props) {
+        super(props)
+        this.state = {
+            nom: 'Jean'
+        }
+        this.handleChange = this.handleChange.bind(this)
+    }
+    handleChange (e) {
+        this.setState({
+            nom: e.target.value
+        })
+    }
+    render () {
+        return <div>
+            <label htmlFor="nom">Mon nom</label>
+            <input type="texte"  />
+            <textarea id="nom" name="nom" value={this.state.com} onChange={this.handleChange}></textarea>
+        </div>
+    }
+}
 
 ReactDOM.render(<Home />, document.querySelector("#app"))
