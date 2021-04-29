@@ -160,8 +160,10 @@ class Home extends React.Component {
     }
     handleChange (e) {
         const name = e.target.name
+        const type = e.target.type
+        const value = type === 'checkbox' ? e.target.checked : e.target.value
         this.setState({
-            [name]: e.target.value
+            [name]: value
         })
     }
     render () {
