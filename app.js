@@ -152,25 +152,33 @@ class Home extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            nom: 'Jean'
+            nom:'',
+            prenom:'',
+            newsletter: false
         }
         this.handleChange = this.handleChange.bind(this)
     }
     handleChange (e) {
+        const name = e.target.name
         this.setState({
-            nom: e.target.value
+            [name]: e.target.value
         })
     }
     render () {
         return <div>
-            <label htmlFor="nom">Mon nom</label>
-            {/* <textarea id="nom" name="nom" value={this.state.com} onChange={this.handleChange}></textarea> */}
-            <select value={this.state.nom} onChange={this.handleChange}>
-                <option value="demo1">Demo 1</option>
-                <option value="demo2">Demo 2</option>
-                <option value="demo3">Demo 3</option>
-
-            </select>
+            <div>
+                <label htmlFor="nom">Nom</label>
+                <input type="text" value={this.state.nom} onChange={this.handleChange} id="nom" name="nom" />
+            </div>
+            <div>
+                <label htmlFor="nom">Prénom</label>
+                <input type="text" value={this.state.prenom} onChange={this.handleChange} id="prenom" name="prenom" />
+            </div>
+            <div>
+                <label htmlFor="nom">S'abonner à la newsletter</label>
+                <input type="checkbox" checked={this.state.newsletter} onChange={this.handleChange} id="newsletter" name="newsletter" />
+            </div>
+            {JSON.stringify(this.state)}
         </div>
     }
 }
