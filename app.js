@@ -164,7 +164,6 @@ class Home extends React.Component {
     render () {
         return <div>
             <label htmlFor="nom">Mon nom</label>
-            <input type="texte"  />
             <textarea id="nom" name="nom" value={this.state.com} onChange={this.handleChange}></textarea>
         </div>
     }
