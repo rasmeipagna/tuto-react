@@ -153,7 +153,13 @@ function Field ({name, value, onChange, children}) {
             <input type="text" value={value} onChange={onChange} id="name" name={name} className="form-control"></input>
         </div>
     }
+function Checkbox ({name, value, onChange, children}) {
+        return <div className="form-check">
+            <input type="checkbox" value={value} onChange={onChange} id="name" name={name} className="form-check-input"></input>
+            <label htmlFor={name} class="form-check-label">{children}</label>
 
+        </div>
+    }
 
 class Home extends React.Component {
     constructor (props) {
@@ -176,7 +182,8 @@ class Home extends React.Component {
     render () {
         return <div className="container">
             <Field name="nom" value={this.state.nom} onChange={this.handleChange}>Nom </Field>
-            <Field name="prenom" value={this.state.nom} onChange={this.handleChange}>Prénom </Field>
+            <Field name="prenom" value={this.state.prenom} onChange={this.handleChange}>Prénom </Field>
+            <Checkbox name="newsletter" value={this.state.newsletter} onChange={this.handleChange}>S'abonner à la newsletter</Checkbox>
             {JSON.stringify(this.state)}
             {/* <div>
                 <label htmlFor="nom">Nom</label>
