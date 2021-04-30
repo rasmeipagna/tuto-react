@@ -184,7 +184,12 @@ class Home extends React.Component {
     handleSubmit (e) {
         e.preventDefault()
         const data = JSON.stringify(this.state)
-        console.log(data)
+        // on reinitilise a chaque envoie, ils sont controlé par react
+        this.setState({
+            nom:'',
+            prenom:'',
+            newsletter: false
+        })
     }
     render () {
         console.log('render')
