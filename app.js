@@ -147,15 +147,14 @@
 //         <Incrementer start={100} step={10} />
 //     </div>
 // }
-class Field extends React.Component {
-    render () {
-        const {name, value, onChange} = this.props
+function Field ({name, value, onChange, children}) {
         return <div className="form-group">
-            <label htmlFor={name}>Le libellé</label>
+            <label htmlFor={name}>{children}</label>
             <input type="text" value={value} onChange={onChange} id="name" name={name} className="form-control"></input>
         </div>
     }
-}
+
+
 class Home extends React.Component {
     constructor (props) {
         super(props)
@@ -175,8 +174,10 @@ class Home extends React.Component {
         })
     }
     render () {
-        return <div>
-            <Field name="nom" value={this.state.nom} onChange={this.handleChange} />
+        return <div className="container">
+            <Field name="nom" value={this.state.nom} onChange={this.handleChange}>Nom </Field>
+            <Field name="prenom" value={this.state.nom} onChange={this.handleChange}>Prénom </Field>
+            {JSON.stringify(this.state)}
             {/* <div>
                 <label htmlFor="nom">Nom</label>
                 <input type="text" value={this.state.nom} onChange={this.handleChange} id="nom" name="nom" />
