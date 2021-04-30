@@ -156,7 +156,7 @@ function Field ({name, value, onChange, children}) {
 function Checkbox ({name, value, onChange, children}) {
         return <div className="form-check">
             <input type="checkbox" value={value} onChange={onChange} id="name" name={name} className="form-check-input"></input>
-            <label htmlFor={name} class="form-check-label">{children}</label>
+            <label htmlFor={name} className="form-check-label">{children}</label>
 
         </div>
     }
@@ -170,6 +170,8 @@ class Home extends React.Component {
             newsletter: false
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+
     }
     handleChange (e) {
         const name = e.target.name
@@ -179,14 +181,19 @@ class Home extends React.Component {
             [name]: value
         })
     }
+    handleSubmit (e) {
+        e.preventDefault()
+        const data = JSON.stringify(this.state)
+        console.log(data)
+    }
     render () {
         console.log('render')
-        return <form className="container">
+        return <form className="container" onSubmit={this.handleSUbmit}>
             <Field name="nom" value={this.state.nom} onChange={this.handleChange}>Nom </Field>
             <Field name="prenom" value={this.state.prenom} onChange={this.handleChange}>Prénom </Field>
             <Checkbox name="newsletter" value={this.state.newsletter} onChange={this.handleChange}>S'abonner à la newsletter</Checkbox>
             <div className="form-group">
-                <button class="btn btn-primary">Envoyer</button>
+                <button className="btn btn-primary">Envoyer</button>
 
             </div>
             {JSON.stringify(this.state)}
