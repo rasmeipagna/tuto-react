@@ -180,10 +180,15 @@ class Home extends React.Component {
         })
     }
     render () {
-        return <div className="container">
+        console.log('render')
+        return <form className="container">
             <Field name="nom" value={this.state.nom} onChange={this.handleChange}>Nom </Field>
             <Field name="prenom" value={this.state.prenom} onChange={this.handleChange}>Prénom </Field>
             <Checkbox name="newsletter" value={this.state.newsletter} onChange={this.handleChange}>S'abonner à la newsletter</Checkbox>
+            <div className="form-group">
+                <button class="btn btn-primary">Envoyer</button>
+
+            </div>
             {JSON.stringify(this.state)}
             {/* <div>
                 <label htmlFor="nom">Nom</label>
@@ -197,7 +202,7 @@ class Home extends React.Component {
                 <label htmlFor="nom">S'abonner à la newsletter</label>
                 <input type="checkbox" checked={this.state.newsletter} onChange={this.handleChange} id="newsletter" name="newsletter" />
             </div> */}
-        </div>
+        </form>
     }
 }
 
