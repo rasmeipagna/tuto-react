@@ -5,4 +5,4 @@ function BoilingVerdict({celsius}) {
     return <div className ="alert alert-info"> L'eau ne bout pas</div>
 }
 
-ReactDOM.render(<BoilingVerdict celsius={50}/>, document.getElementById('app'))
+ReactDOM.render(<BoilingVerdict celsius={110}/>, document.getElementById('app'))
