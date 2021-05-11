@@ -27,4 +27,4 @@ class Calculator extends React.Component{
     }
 }
 
-ReactDOM.render(<BoilingVerdict celsius={50}/>, document.getElementById('app'))
+ReactDOM.render(<BoilingVerdict celsius={100}/>, document.getElementById('app'))
