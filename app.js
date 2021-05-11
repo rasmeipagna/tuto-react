@@ -18,11 +18,13 @@ class Calculator extends React.Component{
         return <div>
             <div className="form-group">
                 <label htmlFor="celsius">Temperature (en Celsius)</label>
-                <input type="text" id="celsius" value={temperature} class="form-control"></input>
-                <BoilingVerdict celsius={parseFloat(temperature)}/>
+                <input type="text" id="celsius" value={temperature} className="form-control">
+                </input>
             </div>
+                <BoilingVerdict celsius={parseFloat(temperature)}/>
+           
         </div>
     }
 }
 
-ReactDOM.render(<BoilingVerdict celsius={110}/>, document.getElementById('app'))
+ReactDOM.render(<BoilingVerdict celsius={50}/>, document.getElementById('app'))
