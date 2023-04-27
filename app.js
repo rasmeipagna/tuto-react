@@ -25,10 +25,9 @@ class TemperatureInput extends React.Component {
     constructor (props) {
         super(props)
         this.handleChange = this.handleChange.bind(this)
-
     }
     handleChange (e) {
-        // this.setState({temperature : e.target.value})
+        this.props.onTemperatureChange(e.target.value)
     }
 
     render () {
@@ -41,7 +40,13 @@ class TemperatureInput extends React.Component {
         </div>
     }
 }
-
+function Button ({type, children}){
+    const className = 'btn btn-' + type
+    return <button className={className}>{children}</button>
+}
+function PrimaryButton ({children}){
+    return <Button type="primary">{children}</Button>
+}
 class Calculator extends React.Component{
 
     constructor(props) {
@@ -49,6 +54,11 @@ class Calculator extends React.Component{
         this.state = {
             temperature: 20
         }
+        this.handleTemperatureChange = this.handleTemperatureChange.bind(this)
+
+    }
+    handleTemperatureChange (temperature) {
+        this.SetState({temperature})
     }
 
     render () {
@@ -57,9 +67,10 @@ class Calculator extends React.Component{
         const fahrenheit = toFahrenheit(celsius)
         return <div>
             <div className="form-group">
-                <TemperatureInput scale="c" temperature={celsius}/>
+                <TemperatureInput scale="c" temperature={celsius} onTemperatureChange={this.handleTemperatureChange}/>
                 <TemperatureInput scale="f" temperature={fahrenheit}/>
                 <BoilingVerdict celsius={parseFloat(temperature)}/>
+                <PrimaryButton type="primary">Envoyer</PrimaryButton>
             </div>
                 
            
@@ -67,4 +78,4 @@ class Calculator extends React.Component{
     }
 }
 
-ReactDOM.render(<BoilingVerdict celsius={100}/>, document.getElementById('app'))
+ReactDOM.render(<Calculator/>, document.getElementById('app'))
