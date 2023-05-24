@@ -5,14 +5,43 @@ const PRODUCTS = [
     { category: "Vegetables", price: "$2", stocked: true, name: "Spinach" },
     { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
     { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
-  ]
+  ];
+
+  function ProductRow ({products}) {
+    return <tr>
+        <td>{products.name}</td>
+        <td>{products.price}</td>
+        
+    </tr>
+  }
+  function ProductCategoryRow ({category}) {
+    return <tr>
+        <th colSpan="2">{category}</th>
+    </tr>
+  }
+  function ProductTable ({products}) {
+    const rows = []
+    const lastCategory = null
+    
+    return <table className="table">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prix</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+  }
   class FilterableProductTable extends React.Component {
     render() {
         const {products} = this.props
-        return <div>{JSON.stringify(products)}</div>
+        return <ProductTable products={products}/>
     }
   }
   ReactDOM.render(
   <FilterableProductTable products={PRODUCTS}/>,
-  document.getElementById('app)')
+  document.getElementById('app')
   )
