@@ -7,10 +7,10 @@ const PRODUCTS = [
     { category: "Vegetables", price: "$1", stocked: true, name: "Peas" }
   ];
 
-  function ProductRow ({products}) {
+  function ProductRow ({product}) {
     return <tr>
-        <td>{products.name}</td>
-        <td>{products.price}</td>
+        <td>{product.name}</td>
+        <td>{product.price}</td>
         
     </tr>
   }
@@ -21,7 +21,15 @@ const PRODUCTS = [
   }
   function ProductTable ({products}) {
     const rows = []
-    const lastCategory = null
+    let lastCategory = null
+
+    products.forEach(product => {
+        if (product.category !== lastCategory) {
+            lastCategory = product.category
+            rows.push(<ProductCategoryRow category={product.category}/>)
+        }
+        rows.push(<ProductRow product={product}/>)
+    })
     
     return <table className="table">
         <thead>
@@ -30,9 +38,7 @@ const PRODUCTS = [
                 <th>Prix</th>
             </tr>
         </thead>
-        <tbody>
-
-        </tbody>
+        <tbody>{rows}</tbody>
     </table>
   }
   class FilterableProductTable extends React.Component {
